@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Colour Palette Generator{% endblock %}
+
+{% block content %}
+
+<body class="d-flex h-100 text-center text-bg-dark vsc-initialized" style="background-image: url('static/images/colour-background-small.jpg')">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+      <main class="px-3">
+        <h1>Colour Palette Generator</h1>
+        <p class="lead">Upload an image to extract colours.</p>
+        <form method="POST" enctype="multipart/form-data">
+          <div class="input-group">
+            <label for="number_colours">Number of colours to extract (1-30):</label>
+            <input type="number" name="number_colours" id="number_colours" min="1" max="30" value="10">
+            <label for="sensitivity">Sensitivity (1-30, 1=most sensitive, may return lots of similar colours):</label>
+            <input type="number" name="sensitivity" id="sensitivity" min="1" max="30" value="15">
+            <label for="file">Select an image:</label>
+            <input type="file" name="file" id="file">
+            <input type="submit" name="submit" id="submit" value="Upload"/>
+          </div>
+        </form>
+      </main>
+    </div>
+</body>
+
+
+{% endblock %}

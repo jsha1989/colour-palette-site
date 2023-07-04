@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Colour Palette Generator: Results{% endblock %}
+
+{% block content %}
+
+<body style="background-image: url('static/images/colour-background-small.jpg')">
+<div class="palette-body">
+    <h2>Colour Palette: Most Frequent Colours</h2>
+    <img id="upload-image" src="static/images/{{ image }}" width="500px;">
+
+    <div class="palette-grid">
+        {% for colour in colours %}
+        <div class="top-10-colour">
+            <div class="sample-colour" style="background-color: {{ colour }}; border-radius: 50px; width: 50px; height: 50px;"></div>
+            <p>Hex: {{ colour }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="link-home">
+        <a href="{{ url_for('upload_file') }}">Try another image</a>
+    </div>
+</div>
+</body>
+
+{% endblock %}
